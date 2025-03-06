@@ -5,8 +5,189 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/neutral_200"
     tools:context=".ui.HomepageActivity">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Header Banner -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivHeaderBanner"
+                android:layout_width="match_parent"
+                android:layout_height="384dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/homepage_banner"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Profile Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfileCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="-28dp"
+                android:clipToPadding="false"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivHeaderBanner">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hi, Diandra"
+                        android:textColor="@color/neutral_950"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/public_sans_bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/icMemberLevel"
+                        android:layout_width="24dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="4dp"
+                        android:src="@drawable/icon_level"
+                        app:layout_constraintBottom_toBottomOf="@id/tvUserName"
+                        app:layout_constraintEnd_toStartOf="@id/tvMemberLevel"
+                        app:layout_constraintTop_toTopOf="@id/tvUserName" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvMemberLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/public_sans_bold"
+                        android:text="Green Level"
+                        android:textColor="@color/brand_accent_green"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/icMemberLevel"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/icMemberLevel" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/divProfileCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:dividerColor="@color/neutral_100"
+                        app:dividerThickness="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/icUserPoints"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@drawable/icon_point"
+                        app:layout_constraintEnd_toStartOf="@id/tvMemberPoints"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/divProfileCard" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvMemberPoints"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/public_sans_bold"
+                        android:text="428"
+                        android:textColor="@color/neutral_950"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/icUserPoints"
+                        app:layout_constraintStart_toEndOf="@id/icUserPoints"
+                        app:layout_constraintTop_toTopOf="@id/icUserPoints" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPointsLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/public_sans"
+                        android:text="pts"
+                        android:textColor="@color/neutral_500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvMemberPoints"
+                        app:layout_constraintStart_toEndOf="@id/tvMemberPoints" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvClaimReward"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/public_sans"
+                        android:text="Claim your rewards"
+                        android:textColor="@color/neutral_500"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/icClaimReward"
+                        app:layout_constraintEnd_toStartOf="@id/icClaimReward"
+                        app:layout_constraintTop_toTopOf="@id/icClaimReward" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/icClaimReward"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_chevron_right"
+                        app:layout_constraintBottom_toBottomOf="@id/tvMemberPoints"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvMemberPoints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Menu Order Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvMenuOrderCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@id/cvProfileCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="It's the perfect time for coffee!"
+                        android:textColor="@color/neutral_600"
+                        android:textSize="14sp"
+                        app:fontFamily="@font/public_sans"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
