@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Base Color-->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--Neutral Color-->
+    <color name="neutral_50">#FCFCFD</color>
+    <color name="neutral_100">#F9FAFB</color>
+    <color name="neutral_200">#F3F4F6</color>
+    <color name="neutral_300">#E5E7EB</color>
+    <color name="neutral_400">#D2D6DB</color>
+    <color name="neutral_500">#9DA4AE</color>
+    <color name="neutral_600">#6C737F</color>
+    <color name="neutral_700">#4D5761</color>
+    <color name="neutral_800">#384250</color>
+    <color name="neutral_900">#1F2A37</color>
+    <color name="neutral_950">#111927</color>
+
+    <!--Brand Color-->
+    <color name="brand_primary">#006241</color>
+    <color name="brand_accent_green">#00754A</color>
+    <color name="brand_light_green">#D4E9E2</color>
+    <color name="brand_house_green">#1E3932</color>
+
+
+
+</resources>
