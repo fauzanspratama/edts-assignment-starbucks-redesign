@@ -1,4 +1,4 @@
-package com.dicoding.starbucksredesign
+package com.dicoding.starbucksredesign.data
 
 data class NewsItem(
     val category: String,  // e.g., "Coffee and Product"

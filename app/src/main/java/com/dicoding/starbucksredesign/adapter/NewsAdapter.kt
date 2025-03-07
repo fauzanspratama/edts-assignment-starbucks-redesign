@@ -1,8 +1,9 @@
-package com.dicoding.starbucksredesign
+package com.dicoding.starbucksredesign.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dicoding.starbucksredesign.data.NewsItem
 import com.dicoding.starbucksredesign.databinding.ItemNewsBinding
 
 class NewsAdapter(private val newsList: List<NewsItem>) :

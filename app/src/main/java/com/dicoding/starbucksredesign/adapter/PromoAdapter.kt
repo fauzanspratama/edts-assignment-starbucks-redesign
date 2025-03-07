@@ -1,4 +1,4 @@
-package com.dicoding.starbucksredesign
+package com.dicoding.starbucksredesign.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
