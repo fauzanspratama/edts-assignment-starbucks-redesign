@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="8dp">
+
+    <!-- News Image -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_news_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/homepage_banner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedImage" />
+
+    <!-- Linear Layout for Text Content -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/iv_news_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_news_image"
+        app:layout_constraintTop_toTopOf="@id/iv_news_image">
+
+        <!-- Category Text -->
+        <TextView
+            android:id="@+id/tv_news_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/public_sans_semibold"
+            android:text="Food and Drink"
+            android:textColor="@color/brand_accent_green"
+            android:textSize="12sp" />
+
+        <!-- News Title -->
+        <TextView
+            android:id="@+id/tv_news_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/public_sans_bold"
+            android:lineHeight="20dp"
+            android:maxLines="2"
+            android:text="Fall in love with Starbucks Valentine’s Day"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <!-- News Date -->
+            <TextView
+                android:id="@+id/tv_news_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/public_sans"
+                android:text="January 8, 2025"
+                android:textColor="@color/neutral_500"
+                android:textSize="12sp" />
+
+            <!-- Dot Separator -->
+            <TextView
+                android:id="@+id/tv_news_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="@font/public_sans"
+                android:text="•"
+                android:textColor="@color/neutral_500"
+                android:textSize="12sp" />
+
+            <!-- Read Time -->
+            <TextView
+                android:id="@+id/tv_news_read_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/public_sans"
+                android:text="2 min read"
+                android:textColor="@color/neutral_500"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
