@@ -4,10 +4,10 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.dicoding.starbucksredesign.adapter.NewsAdapter
-import com.dicoding.starbucksredesign.data.NewsItem
-import com.dicoding.starbucksredesign.adapter.PromoAdapter
 import com.dicoding.starbucksredesign.R
+import com.dicoding.starbucksredesign.adapter.NewsAdapter
+import com.dicoding.starbucksredesign.adapter.PromoAdapter
+import com.dicoding.starbucksredesign.data.NewsItem
 import com.dicoding.starbucksredesign.databinding.ActivityHomepageBinding
 
 class HomepageActivity : AppCompatActivity() {
@@ -17,34 +17,38 @@ class HomepageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize ViewBinding with the correct layout
+        // Initialize ViewBinding
         binding = ActivityHomepageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Apply Edge-To-Edge mode after setting the content view
+        // Apply Edge-To-Edge mode
         enableEdgeToEdge()
+
 
         // Sample News Data
         val newsList = listOf(
             NewsItem(
+                1,
                 "Food and Drink",
                 "Fall in love with Starbucks Valentine’s Day",
                 "January 8, 2025",
-                "2 min read",
+                "2",
                 R.drawable.img_news_1
             ),
             NewsItem(
+                2,
                 "Coffee and Product",
                 "Starbucks Reserve Hot Honey Ginger Spritz",
                 "January 8, 2025",
-                "2 min read",
+                "2",
                 R.drawable.img_news_2
             ),
             NewsItem(
+                3,
                 "Coffee and Product",
-                "Starbucks Blackberry Sage Refresher Midnight drink",
+                "Starbucks Blackberry Sage Refresher Midnight Drink",
                 "January 8, 2025",
-                "2 min read",
+                "2",
                 R.drawable.img_news_3
             )
         )
@@ -59,13 +63,12 @@ class HomepageActivity : AppCompatActivity() {
         // Initialize Promo Adapter
         val promoAdapter = PromoAdapter(promoImages)
         binding.rvPromo.apply {
-            layoutManager =
-                LinearLayoutManager(this@HomepageActivity)
+            layoutManager = LinearLayoutManager(this@HomepageActivity)
             adapter = promoAdapter
         }
 
-        // Initialize RecyclerView with Adapter
-        newsAdapter = NewsAdapter(newsList)
+        // Initialize News Adapter
+        newsAdapter = NewsAdapter(this, newsList) // ✅ Fixed order (Activity first)
         binding.rvNews.apply {
             layoutManager = LinearLayoutManager(this@HomepageActivity)
             adapter = newsAdapter
