@@ -1,6 +1,7 @@
 package com.dicoding.starbucksredesign.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ class HomepageActivity : AppCompatActivity() {
     private lateinit var newsAdapter: NewsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         // Initialize ViewBinding
@@ -60,6 +62,18 @@ class HomepageActivity : AppCompatActivity() {
             R.drawable.img_promo_3
         )
 
+
+        // Update Store Data Dynamically
+        binding.viewStoreLocator.setStoreData("Grand Indonesia", "1.5")
+
+
+        // Initialize News Adapter
+        newsAdapter = NewsAdapter(this, newsList)
+        binding.rvNews.apply {
+            layoutManager = LinearLayoutManager(this@HomepageActivity)
+            adapter = newsAdapter
+        }
+
         // Initialize Promo Adapter
         val promoAdapter = PromoAdapter(promoImages)
         binding.rvPromo.apply {
@@ -67,11 +81,21 @@ class HomepageActivity : AppCompatActivity() {
             adapter = promoAdapter
         }
 
-        // Initialize News Adapter
-        newsAdapter = NewsAdapter(this, newsList) // ✅ Fixed order (Activity first)
-        binding.rvNews.apply {
-            layoutManager = LinearLayoutManager(this@HomepageActivity)
-            adapter = newsAdapter
+        // Set Click Listeners
+        binding.viewStoreLocator.setOnOrderButtonClickListener {
+            Toast.makeText(this, "Order Button Clicked!", Toast.LENGTH_SHORT).show()
         }
+
+        binding.viewStoreLocator.setOnLocationBarClickListener {
+            Toast.makeText(this, "Location Bar Clicked!", Toast.LENGTH_SHORT).show()
+        }
+
+        val images = listOf(
+            R.drawable.img_homepage_banner,
+            R.drawable.img_homepage_banner,
+            R.drawable.img_homepage_banner
+        )
+
+        binding.viewHeroBanner.setImages(images)
     }
 }

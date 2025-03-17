@@ -18,16 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Header Banner -->
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_header_banner"
+            <!-- Header Banner Slider -->
+            <com.dicoding.starbucksredesign.component.HeroBanner
+                android:id="@+id/view_hero_banner"
                 android:layout_width="match_parent"
-                android:layout_height="384dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_homepage_banner"
-                app:layout_constraintDimensionRatio="1:1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
 
             <!-- Profile Card -->
             <androidx.cardview.widget.CardView
@@ -41,7 +39,7 @@
                 app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_header_banner">
+                app:layout_constraintTop_toBottomOf="@id/view_hero_banner">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -180,63 +178,14 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <!-- Store Locator -->
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/store_locator_container"
+                    <!-- Store Locator View -->
+                    <com.dicoding.starbucksredesign.component.StoreLocatorView
+                        android:id="@+id/view_store_locator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:background="@color/neutral_200"
-                        android:clipToPadding="false"
-                        app:cardElevation="0dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_order_greeting"
-                        app:strokeWidth="0dp">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_order_card">
-
-                            <com.google.android.material.imageview.ShapeableImageView
-                                android:id="@+id/ic_store_locator"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="16dp"
-                                android:src="@drawable/ic_store"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.textview.MaterialTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:fontFamily="@font/public_sans_semibold"
-                                android:text="Wisma 46 - BNI City"
-                                android:textSize="14sp"
-                                app:layout_constraintBottom_toBottomOf="@id/ic_store_locator"
-                                app:layout_constraintStart_toEndOf="@id/ic_store_locator"
-                                app:layout_constraintTop_toTopOf="@id/ic_store_locator" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/brand_accent_green"
-                                android:fontFamily="@font/public_sans_bold"
-                                android:insetTop="2dp"
-                                android:insetRight="2dp"
-                                android:insetBottom="2dp"
-                                android:minHeight="44dp"
-                                android:text="Order"
-                                app:cornerRadius="0dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    </com.google.android.material.card.MaterialCardView>
+                        app:layout_constraintTop_toBottomOf="@id/tv_order_greeting" />
 
                     <!-- Menu Grid -->
                     <GridLayout
@@ -247,7 +196,7 @@
                         android:columnCount="4"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/store_locator_container">
+                        app:layout_constraintTop_toBottomOf="@id/view_store_locator">
 
                         <!-- Scan & Pay -->
                         <LinearLayout
@@ -428,8 +377,8 @@
                 android:id="@+id/rvPromo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
                 android:overScrollMode="never"
                 app:layout_constraintTop_toBottomOf="@id/news_card_container" />
 

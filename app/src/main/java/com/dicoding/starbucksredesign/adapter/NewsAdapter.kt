@@ -29,7 +29,6 @@ class NewsAdapter(
 
         // Ensure transition names are correctly set
         val imageTransitionName = "news_image_${newsItem.id}"
-
         binding.ivNewsImage.transitionName = imageTransitionName
 
         // Bind data
@@ -50,11 +49,11 @@ class NewsAdapter(
                 putExtra("news_image", newsItem.imageResId)
             }
 
+            // Initialize ActivityOption
             val options = ActivityOptions.makeSceneTransitionAnimation(
                 activity,
                 UtilPair.create(binding.ivNewsImage, imageTransitionName)
             )
-
             activity.startActivity(intent, options.toBundle())
         }
     }

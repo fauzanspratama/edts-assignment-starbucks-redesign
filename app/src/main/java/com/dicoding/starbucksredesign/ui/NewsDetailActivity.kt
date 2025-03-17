@@ -19,11 +19,6 @@ class NewsDetailActivity : AppCompatActivity() {
 
         enableEdgeToEdge()
 
-        /**
-        // Deprecated
-        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
-         */
-
 
         // Get data from intent
         val id = intent.getIntExtra("news_id", -1)
@@ -37,26 +32,6 @@ class NewsDetailActivity : AppCompatActivity() {
         binding.ivNewsImage.transitionName = "news_image_$id"
 
 
-        /**
-        // Apply smoother MaterialContainerTransform
-        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
-        addTarget(binding.root)
-        duration = 450L  // Smoother, faster transition
-        interpolator = AccelerateDecelerateInterpolator()
-        scrimColor = Color.TRANSPARENT  // No background fade
-        pathMotion = MaterialArcMotion()
-        }
-
-        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
-        addTarget(binding.root)
-        duration = 450L
-        interpolator = AccelerateDecelerateInterpolator()
-        scrimColor = Color.TRANSPARENT
-        pathMotion = MaterialArcMotion()
-        }
-         */
-
-
         // Set data to views
         binding.tvNewsTitle.text = title
         binding.tvNewsCategory.text = category
@@ -68,5 +43,6 @@ class NewsDetailActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+
     }
 }
