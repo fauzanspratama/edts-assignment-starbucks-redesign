@@ -24,8 +24,8 @@ class HeroBanner @JvmOverloads constructor(
     private val sliderHandler = Handler(Looper.getMainLooper())
     private val slideRunnable = object : Runnable {
         override fun run() {
-            val nextItem = (binding.vpHeaderSlider.currentItem + 1) % imageList.size
-            binding.vpHeaderSlider.currentItem = nextItem
+            val nextItem = (binding.vpHeaderBanner.currentItem + 1) % imageList.size
+            binding.vpHeaderBanner.currentItem = nextItem
             sliderHandler.postDelayed(this, 3000) // Change slide every 3 seconds
         }
     }
@@ -36,17 +36,17 @@ class HeroBanner @JvmOverloads constructor(
 
     fun setImages(images: List<Int>) {
         imageList = images
-        binding.vpHeaderSlider.adapter = HeroBannerAdapter(imageList)
+        binding.vpHeaderBanner.adapter = HeroBannerAdapter(imageList)
 
         // Bind TabLayout with ViewPager2
-        TabLayoutMediator(binding.tabIndicator, binding.vpHeaderSlider) { _, _ -> }.attach()
+        TabLayoutMediator(binding.tabIndicator, binding.vpHeaderBanner) { _, _ -> }.attach()
 
-        // Restart auto-scroll when images are updated
         restartAutoScroll()
     }
 
     private fun setupAutoScroll() {
-        binding.vpHeaderSlider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.vpHeaderBanner.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 sliderHandler.removeCallbacks(slideRunnable)
                 sliderHandler.postDelayed(slideRunnable, 3000)

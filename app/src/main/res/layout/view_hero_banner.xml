@@ -6,10 +6,10 @@
 
     <!-- Header Banner Slider -->
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_header_slider"
+        android:id="@+id/vp_header_banner"
         android:layout_width="match_parent"
         android:layout_height="384dp"
-        android:background="@drawable/img_homepage_banner"
+        android:background="@drawable/img_homepage_banner_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +19,7 @@
         android:layout_height="16dp"
         android:layout_marginBottom="40dp"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/vp_header_slider"
+        app:layout_constraintBottom_toBottomOf="@+id/vp_header_banner"
         app:layout_constraintStart_toStartOf="parent"
         app:tabBackground="@drawable/ic_dot_selector"
         app:tabGravity="center"

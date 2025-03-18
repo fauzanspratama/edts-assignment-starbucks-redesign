@@ -4,9 +4,9 @@
         <shape
             android:shape="ring"
             android:innerRadius="0dp"
-            android:thickness="4dp"
+            android:thickness="3dp"
             android:useLevel="false">
-            <solid android:color="@color/brand_accent_green"/>
+            <solid android:color="@color/brand_light_green"/>
         </shape>
     </item>
 
@@ -14,9 +14,9 @@
         <shape
             android:shape="ring"
             android:innerRadius="0dp"
-            android:thickness="4dp"
+            android:thickness="3dp"
             android:useLevel="false">
-            <solid android:color="@color/neutral_400"/>
+            <solid android:color="#801E3932"/>
         </shape>
     </item>
 </selector>

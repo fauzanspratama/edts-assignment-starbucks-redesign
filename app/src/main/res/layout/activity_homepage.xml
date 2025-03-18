@@ -23,9 +23,22 @@
                 android:id="@+id/view_hero_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- Profile Card -->
+            <com.dicoding.starbucksredesign.component.NotificationBadgeView
+                android:id="@+id/view_notification_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="12dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- Profile Card -->
             <androidx.cardview.widget.CardView
@@ -105,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:fontFamily="@font/public_sans_bold"
-                        android:text="428"
+                        android:text="528"
                         android:textColor="@color/neutral_950"
                         android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@id/ic_user_point"
