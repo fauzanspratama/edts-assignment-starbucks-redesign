@@ -1,21 +1,136 @@
 package com.dicoding.starbucksredesign.ui
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.starbucksredesign.R
+import com.dicoding.starbucksredesign.adapter.NewsAdapter
+import com.dicoding.starbucksredesign.adapter.PromoAdapter
+import com.dicoding.starbucksredesign.component.NotificationBadgeView
+import com.dicoding.starbucksredesign.data.NewsItem
+import com.dicoding.starbucksredesign.databinding.ActivityHomepageBinding
 
 class HomepageActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomepageBinding
+    private lateinit var newsAdapter: NewsAdapter
+    private var notificationCount = 4
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_homepage)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Initialize ViewBinding
+        binding = ActivityHomepageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        enableEdgeToEdge() // Apply Edge-To-Edge mode
+
+        setupNewsSection()
+        setupPromoSection()
+        setupStoreLocator()
+        setupHeroBanner()
+        setupClickListeners()
+        setupNotificationBadge()
+    }
+
+    private fun setupNewsSection() {
+        val newsList = listOf(
+            NewsItem(
+                1,
+                "Food and Drink",
+                "Fall in love with Starbucks Valentine’s Day",
+                "January 8, 2025",
+                "2",
+                R.drawable.img_news_1
+            ),
+            NewsItem(
+                2,
+                "Coffee and Product",
+                "Starbucks Reserve Hot Honey Ginger Spritz",
+                "January 8, 2025",
+                "2",
+                R.drawable.img_news_2
+            ),
+            NewsItem(
+                3,
+                "Coffee and Product",
+                "Starbucks Blackberry Sage Refresher Midnight Drink",
+                "January 8, 2025",
+                "2",
+                R.drawable.img_news_3
+            )
+        )
+
+        newsAdapter = NewsAdapter(this, newsList)
+        binding.rvNews.apply {
+            layoutManager = LinearLayoutManager(this@HomepageActivity)
+            adapter = newsAdapter
         }
     }
+
+    private fun setupPromoSection() {
+        val promoImages = listOf(
+            R.drawable.img_promo_1,
+            R.drawable.img_promo_2,
+            R.drawable.img_promo_3
+        )
+
+        val promoAdapter = PromoAdapter(promoImages)
+        binding.rvPromo.apply {
+            layoutManager = LinearLayoutManager(this@HomepageActivity)
+            adapter = promoAdapter
+        }
+    }
+
+    private fun setupStoreLocator() {
+        binding.viewStoreLocator.setStoreData("Grand Indonesia", "1.5")
+    }
+
+    private fun setupHeroBanner() {
+        val images = listOf(
+            R.drawable.img_homepage_banner_1,
+            R.drawable.img_homepage_banner_2,
+            R.drawable.img_homepage_banner_3
+        )
+        binding.viewHeroBanner.setImages(images)
+    }
+
+    private fun setupClickListeners() {
+        binding.viewStoreLocator.setOnOrderButtonClickListener {
+            Toast.makeText(this, "Order Button Clicked!", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.viewStoreLocator.setOnLocationBarClickListener {
+            Toast.makeText(this, "Location Bar Clicked!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Initializes the Notification Badge and sets up click listeners.
+     */
+    private fun setupNotificationBadge() {
+        val notificationBadgeView: NotificationBadgeView = binding.viewNotificationBadge
+
+        // Simulating new notifications after a delay
+        Handler(Looper.getMainLooper()).postDelayed({
+            addNotification(notificationBadgeView)
+        }, 2000)
+
+        // Click to update notification count (animation happens automatically)
+        notificationBadgeView.setOnClickListener {
+            addNotification(notificationBadgeView)
+        }
+    }
+
+    /**
+     * Increments and updates the notification badge count.
+     */
+    private fun addNotification(notificationBadgeView: NotificationBadgeView) {
+        notificationCount += 1
+        notificationBadgeView.setBadgeCount(notificationCount)
+    }
+
 }

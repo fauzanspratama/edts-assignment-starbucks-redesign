@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Base Color-->
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="error">#B3261E</color>
 
     <!--Neutral Color-->
     <color name="neutral_50">#FCFCFD</color>
@@ -22,7 +23,5 @@
     <color name="brand_accent_green">#00754A</color>
     <color name="brand_light_green">#D4E9E2</color>
     <color name="brand_house_green">#1E3932</color>
-
-
 
 </resources>

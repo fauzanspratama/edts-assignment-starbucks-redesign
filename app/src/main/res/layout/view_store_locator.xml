@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/neutral_200"
+    android:clipToPadding="false"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_order_card">
+
+        <!-- Store Icon -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ic_store_locator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_store"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Store Content -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/ic_store_locator"
+            app:layout_constraintStart_toEndOf="@id/ic_store_locator"
+            app:layout_constraintTop_toTopOf="@id/ic_store_locator">
+
+            <!-- Store Name -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/public_sans_semibold"
+                android:text="Sudirman Park"
+                android:textColor="@color/neutral_950"
+                android:textSize="14sp" />
+
+            <!-- Divider -->
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/public_sans"
+                android:text="•"
+                android:textColor="@color/neutral_400"
+                android:textSize="14sp" />
+
+            <!-- Distance -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_store_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/public_sans"
+                android:text="0.1 km"
+                android:textColor="@color/neutral_500"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Order Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brand_accent_green"
+            android:fontFamily="@font/public_sans_bold"
+            android:insetTop="2dp"
+            android:insetRight="2dp"
+            android:insetBottom="2dp"
+            android:minHeight="44dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="Order"
+            android:textSize="16dp"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
