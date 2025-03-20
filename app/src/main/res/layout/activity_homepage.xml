@@ -10,7 +10,9 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -19,24 +21,25 @@
             android:layout_height="wrap_content">
 
             <!-- Header Banner Slider -->
-            <com.dicoding.starbucksredesign.component.HeroBanner
+            <com.dicoding.starbucksredesign.component.HeroBannerView
                 android:id="@+id/view_hero_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Profile Card -->
+            <!-- Notification Badge -->
             <com.dicoding.starbucksredesign.component.NotificationBadgeView
                 android:id="@+id/view_notification_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
                 android:layout_marginEnd="12dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
+                android:fitsSystemWindows="true"
                 app:cardBackgroundColor="@android:color/transparent"
                 app:cardElevation="0dp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,9 +75,9 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ic_member_level"
-                        android:layout_width="24dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="4dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="6dp"
                         android:src="@drawable/ic_level"
                         app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
                         app:layout_constraintEnd_toStartOf="@id/tv_member_level"
@@ -104,8 +107,8 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ic_user_point"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:layout_marginTop="8dp"
                         android:src="@drawable/ic_point"
                         app:layout_constraintEnd_toStartOf="@id/tv_member_point"
@@ -116,7 +119,7 @@
                         android:id="@+id/tv_member_point"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginStart="6dp"
                         android:fontFamily="@font/public_sans_bold"
                         android:text="528"
                         android:textColor="@color/neutral_950"
@@ -129,7 +132,7 @@
                         android:id="@+id/tv_point_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
+                        android:layout_marginStart="4dp"
                         android:layout_marginBottom="2dp"
                         android:fontFamily="@font/public_sans"
                         android:text="pts"
@@ -142,7 +145,7 @@
                         android:id="@+id/tv_claim_reward"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
                         android:fontFamily="@font/public_sans"
                         android:text="Claim your rewards"
                         android:textColor="@color/neutral_500"
@@ -153,8 +156,8 @@
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ic_claim_reward"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:src="@drawable/ic_chevron_right"
                         app:layout_constraintBottom_toBottomOf="@id/tv_member_point"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -252,7 +255,8 @@
                                 android:layout_height="52dp"
                                 android:background="@drawable/bg_icon"
                                 android:padding="12dp"
-                                android:src="@drawable/ic_store_outline" />
+                                android:src="@drawable/ic_store_outline"
+                                android:tag="Store" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -361,6 +365,7 @@
                         android:clipToPadding="false"
                         android:overScrollMode="never"
                         android:paddingTop="8dp"
+                        android:contentDescription="News Image"
                         app:layout_constraintBottom_toTopOf="@id/btn_see_all_news"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -399,5 +404,22 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:outlineAmbientShadowColor="@color/neutral_600"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextAppearanceActive="@style/BottomNavStyleActive"
+        app:itemTextAppearanceInactive="@style/BottomNavStyleInActive"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

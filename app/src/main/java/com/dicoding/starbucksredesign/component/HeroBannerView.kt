@@ -11,7 +11,7 @@ import com.dicoding.starbucksredesign.adapter.HeroBannerAdapter
 import com.dicoding.starbucksredesign.databinding.ViewHeroBannerBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class HeroBanner @JvmOverloads constructor(
+class HeroBannerView @JvmOverloads constructor (
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0

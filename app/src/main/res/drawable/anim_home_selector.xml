@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="16">
+
+    <!-- Active state with animation -->
+    <item android:id="@+id/state_on"
+        android:drawable="@drawable/avd_home"
+        android:state_checked="true"/>
+
+    <!-- Inactive state with static icon -->
+    <item android:id="@+id/state_off"
+        android:drawable="@drawable/ic_home_outline"/>
+
+    <!-- Transition from inactive to active -->
+    <transition
+        android:fromId="@id/state_off"
+        android:toId="@id/state_on"
+        android:drawable="@drawable/avd_home" />
+</animated-selector>

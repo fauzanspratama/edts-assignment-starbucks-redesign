@@ -17,7 +17,9 @@ import com.dicoding.starbucksredesign.databinding.ActivityHomepageBinding
 class HomepageActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomepageBinding
     private lateinit var newsAdapter: NewsAdapter
-    private var notificationCount = 4
+    private var notificationCount = 94
+    private var userName = "Diandra"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +30,16 @@ class HomepageActivity : AppCompatActivity() {
 
         enableEdgeToEdge() // Apply Edge-To-Edge mode
 
+        // Initialize Dynamic Greetings
+        binding.tvUserName.text = "Hi, $userName"
+
         setupNewsSection()
         setupPromoSection()
         setupStoreLocator()
         setupHeroBanner()
         setupClickListeners()
         setupNotificationBadge()
+        setupBottomNavigation()
     }
 
     private fun setupNewsSection() {
@@ -45,16 +51,14 @@ class HomepageActivity : AppCompatActivity() {
                 "January 8, 2025",
                 "2",
                 R.drawable.img_news_1
-            ),
-            NewsItem(
+            ), NewsItem(
                 2,
                 "Coffee and Product",
                 "Starbucks Reserve Hot Honey Ginger Spritz",
                 "January 8, 2025",
                 "2",
                 R.drawable.img_news_2
-            ),
-            NewsItem(
+            ), NewsItem(
                 3,
                 "Coffee and Product",
                 "Starbucks Blackberry Sage Refresher Midnight Drink",
@@ -73,9 +77,7 @@ class HomepageActivity : AppCompatActivity() {
 
     private fun setupPromoSection() {
         val promoImages = listOf(
-            R.drawable.img_promo_1,
-            R.drawable.img_promo_2,
-            R.drawable.img_promo_3
+            R.drawable.img_promo_1, R.drawable.img_promo_2, R.drawable.img_promo_3
         )
 
         val promoAdapter = PromoAdapter(promoImages)
@@ -119,7 +121,7 @@ class HomepageActivity : AppCompatActivity() {
             addNotification(notificationBadgeView)
         }, 2000)
 
-        // Click to update notification count (animation happens automatically)
+        // Click to update notification count
         notificationBadgeView.setOnClickListener {
             addNotification(notificationBadgeView)
         }
@@ -133,4 +135,37 @@ class HomepageActivity : AppCompatActivity() {
         notificationBadgeView.setBadgeCount(notificationCount)
     }
 
+
+    private fun setupBottomNavigation() {
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.nav_card -> {
+                    Toast.makeText(this, "Card Selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.nav_order -> {
+                    Toast.makeText(this, "Order Selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.nav_reward -> {
+                    Toast.makeText(this, "Reward Selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.nav_me -> {
+                    Toast.makeText(this, "Me Selected", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> true
+            }
+        }
+    }
 }
