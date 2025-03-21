@@ -3,6 +3,7 @@ package com.dicoding.starbucksredesign.ui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +20,6 @@ class HomepageActivity : AppCompatActivity() {
     private lateinit var newsAdapter: NewsAdapter
     private var notificationCount = 94
     private var userName = "Diandra"
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +40,22 @@ class HomepageActivity : AppCompatActivity() {
         setupClickListeners()
         setupNotificationBadge()
         setupBottomNavigation()
+        setupShimmerEffect() // Initialize shimmer effect
+    }
+
+    private fun setupShimmerEffect() {
+        val shimmerEffect = binding.shimmerEffect
+        val animation = AnimationUtils.loadAnimation(this, R.anim.shimmer_animation)
+
+        // Start shimmer
+        shimmerEffect.visibility = android.view.View.VISIBLE
+        shimmerEffect.startAnimation(animation)
+
+        // Stop shimmer after some time (optional)
+        Handler(Looper.getMainLooper()).postDelayed({
+            shimmerEffect.clearAnimation()
+            shimmerEffect.visibility = android.view.View.GONE
+        }, 12000) // Stops after 3 seconds
     }
 
     private fun setupNewsSection() {
@@ -110,9 +126,6 @@ class HomepageActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Initializes the Notification Badge and sets up click listeners.
-     */
     private fun setupNotificationBadge() {
         val notificationBadgeView: NotificationBadgeView = binding.viewNotificationBadge
 
@@ -127,14 +140,10 @@ class HomepageActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Increments and updates the notification badge count.
-     */
     private fun addNotification(notificationBadgeView: NotificationBadgeView) {
         notificationCount += 1
         notificationBadgeView.setBadgeCount(notificationCount)
     }
-
 
     private fun setupBottomNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
@@ -143,27 +152,22 @@ class HomepageActivity : AppCompatActivity() {
                     Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
-
                 R.id.nav_card -> {
                     Toast.makeText(this, "Card Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
-
                 R.id.nav_order -> {
                     Toast.makeText(this, "Order Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
-
                 R.id.nav_reward -> {
                     Toast.makeText(this, "Reward Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
-
                 R.id.nav_me -> {
                     Toast.makeText(this, "Me Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
-
                 else -> true
             }
         }

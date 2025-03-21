@@ -10,7 +10,7 @@
 
     <!-- Inactive state with static icon -->
     <item android:id="@+id/state_off"
-        android:drawable="@drawable/ic_home_outline"/>
+        android:drawable="@drawable/ic_home"/>
 
     <!-- Transition from inactive to active -->
     <transition

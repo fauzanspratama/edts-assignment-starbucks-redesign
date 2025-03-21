@@ -33,6 +33,7 @@
                 android:id="@+id/view_notification_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
@@ -73,15 +74,41 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
+                    <FrameLayout
                         android:id="@+id/ic_member_level"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_marginEnd="6dp"
-                        android:src="@drawable/ic_level"
                         app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
                         app:layout_constraintEnd_toStartOf="@id/tv_member_level"
-                        app:layout_constraintTop_toTopOf="@id/tv_user_name" />
+                        app:layout_constraintTop_toTopOf="@id/tv_user_name">
+
+                        <!-- Main Icon -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/icon_image"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_level"/>
+
+                        <!-- Shimmer Effect -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/shimmer_effect"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/shimmer_overlay"
+                            android:visibility="gone"/>
+                    </FrameLayout>
+
+
+<!--                    <com.google.android.material.imageview.ShapeableImageView-->
+<!--                        android:id="@+id/ic_member_level"-->
+<!--                        android:layout_width="22dp"-->
+<!--                        android:layout_height="22dp"-->
+<!--                        android:layout_marginEnd="6dp"-->
+<!--                        android:src="@drawable/ic_level"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@id/tv_user_name"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/tv_member_level"-->
+<!--                        app:layout_constraintTop_toTopOf="@id/tv_user_name" />-->
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_member_level"
@@ -359,7 +386,7 @@
 
                     <!-- RecyclerView -->
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvNews"
+                        android:id="@+id/rv_news"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clipToPadding="false"
@@ -383,7 +410,7 @@
                         android:text="See all news"
                         android:textColor="@color/brand_accent_green"
                         app:cornerRadius="50dp"
-                        app:layout_constraintTop_toBottomOf="@id/rvNews"
+                        app:layout_constraintTop_toBottomOf="@id/rv_news"
                         app:strokeColor="@color/brand_accent_green" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -392,7 +419,7 @@
 
             <!-- Promo Banner -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPromo"
+                android:id="@+id/rv_promo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
