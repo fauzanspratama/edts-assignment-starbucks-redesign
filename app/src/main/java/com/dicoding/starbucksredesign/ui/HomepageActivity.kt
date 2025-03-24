@@ -3,15 +3,17 @@ package com.dicoding.starbucksredesign.ui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.starbucksredesign.R
+import com.dicoding.starbucksredesign.adapter.MenuAdapter
 import com.dicoding.starbucksredesign.adapter.NewsAdapter
 import com.dicoding.starbucksredesign.adapter.PromoAdapter
 import com.dicoding.starbucksredesign.component.NotificationBadgeView
+import com.dicoding.starbucksredesign.data.MenuItem
 import com.dicoding.starbucksredesign.data.NewsItem
 import com.dicoding.starbucksredesign.databinding.ActivityHomepageBinding
 
@@ -33,31 +35,61 @@ class HomepageActivity : AppCompatActivity() {
         // Initialize Dynamic Greetings
         binding.tvUserName.text = "Hi, $userName"
 
+        setupShimmerEffect() // Initialize shimmer effect
+        setupHeroBanner()
+        setupNotificationBadge()
+        setupStoreLocator()
+        setupMenuGrid()
         setupNewsSection()
         setupPromoSection()
-        setupStoreLocator()
-        setupHeroBanner()
         setupClickListeners()
-        setupNotificationBadge()
         setupBottomNavigation()
-        setupShimmerEffect() // Initialize shimmer effect
+
     }
 
+    // Setup Hero Banner
+    private fun setupHeroBanner() {
+        val images = listOf(
+            R.drawable.img_homepage_banner_1,
+            R.drawable.img_homepage_banner_2,
+            R.drawable.img_homepage_banner_3
+        )
+        binding.viewHeroBanner.setImages(images)
+    }
+
+    // Setup Shimmer Effect
     private fun setupShimmerEffect() {
-        val shimmerEffect = binding.shimmerEffect
-        val animation = AnimationUtils.loadAnimation(this, R.anim.shimmer_animation)
+        val shimmerDuration = 14000L  // 14 Sec
 
-        // Start shimmer
-        shimmerEffect.visibility = android.view.View.VISIBLE
-        shimmerEffect.startAnimation(animation)
-
-        // Stop shimmer after some time (optional)
         Handler(Looper.getMainLooper()).postDelayed({
-            shimmerEffect.clearAnimation()
-            shimmerEffect.visibility = android.view.View.GONE
-        }, 12000) // Stops after 3 seconds
+            binding.icMemberLevel.stopShimmer()
+            binding.icMemberPoint.stopShimmer()
+        }, shimmerDuration)
     }
 
+
+    // Setup Store Locator
+    private fun setupStoreLocator() {
+        binding.viewStoreLocator.setStoreData("Grand Indonesia", "1.5")
+    }
+
+    // Setup Menu Grid
+    private fun setupMenuGrid() {
+        val menuItems = listOf(
+            MenuItem(R.drawable.ic_scan, "Scan & Pay"),
+            MenuItem(R.drawable.ic_store_outline, "Store"),
+            MenuItem(R.drawable.ic_voucher, "Voucher"),
+            MenuItem(R.drawable.ic_order, "My Orders")
+        )
+
+        val menuAdapter = MenuAdapter(menuItems)
+        binding.rvMenu.apply {
+            layoutManager = GridLayoutManager(this@HomepageActivity, 4)
+            adapter = menuAdapter
+        }
+    }
+
+    // Setup News Section
     private fun setupNewsSection() {
         val newsList = listOf(
             NewsItem(
@@ -91,6 +123,7 @@ class HomepageActivity : AppCompatActivity() {
         }
     }
 
+    // Setup Promo Section
     private fun setupPromoSection() {
         val promoImages = listOf(
             R.drawable.img_promo_1, R.drawable.img_promo_2, R.drawable.img_promo_3
@@ -103,29 +136,7 @@ class HomepageActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupStoreLocator() {
-        binding.viewStoreLocator.setStoreData("Grand Indonesia", "1.5")
-    }
-
-    private fun setupHeroBanner() {
-        val images = listOf(
-            R.drawable.img_homepage_banner_1,
-            R.drawable.img_homepage_banner_2,
-            R.drawable.img_homepage_banner_3
-        )
-        binding.viewHeroBanner.setImages(images)
-    }
-
-    private fun setupClickListeners() {
-        binding.viewStoreLocator.setOnOrderButtonClickListener {
-            Toast.makeText(this, "Order Button Clicked!", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.viewStoreLocator.setOnLocationBarClickListener {
-            Toast.makeText(this, "Location Bar Clicked!", Toast.LENGTH_SHORT).show()
-        }
-    }
-
+    // Setup Notification Badge
     private fun setupNotificationBadge() {
         val notificationBadgeView: NotificationBadgeView = binding.viewNotificationBadge
 
@@ -140,6 +151,18 @@ class HomepageActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun setupClickListeners() {
+        binding.viewStoreLocator.setOnOrderButtonClickListener {
+            Toast.makeText(this, "Order Button Clicked!", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.viewStoreLocator.setOnLocationBarClickListener {
+            Toast.makeText(this, "Location Bar Clicked!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
     private fun addNotification(notificationBadgeView: NotificationBadgeView) {
         notificationCount += 1
         notificationBadgeView.setBadgeCount(notificationCount)
@@ -152,22 +175,27 @@ class HomepageActivity : AppCompatActivity() {
                     Toast.makeText(this, "Home Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.nav_card -> {
                     Toast.makeText(this, "Card Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.nav_order -> {
                     Toast.makeText(this, "Order Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.nav_reward -> {
                     Toast.makeText(this, "Reward Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 R.id.nav_me -> {
                     Toast.makeText(this, "Me Selected", Toast.LENGTH_SHORT).show()
                     true
                 }
+
                 else -> true
             }
         }

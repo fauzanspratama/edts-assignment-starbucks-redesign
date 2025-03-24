@@ -8,7 +8,7 @@
 
     <!-- Background Card Container -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardContainer"
+        android:id="@+id/card_container"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:cardCornerRadius="28dp"
@@ -20,7 +20,7 @@
 
         <!-- Notification Icon -->
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/notificationIcon"
+            android:id="@+id/notification_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center"

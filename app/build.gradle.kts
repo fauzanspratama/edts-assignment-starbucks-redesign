@@ -51,4 +51,5 @@ dependencies {
     implementation(libs.glide)
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.airbnb.android:lottie-compose:6.6.2")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
