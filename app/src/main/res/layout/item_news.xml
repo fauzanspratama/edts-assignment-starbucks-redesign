@@ -13,9 +13,9 @@
         android:scaleType="centerCrop"
         android:src="@drawable/img_news_1"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/news_content_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/news_content_container"
         app:shapeAppearanceOverlay="@style/radius_m" />
 
     <!-- Linear Layout for Text Content -->
@@ -23,7 +23,7 @@
         android:id="@+id/news_content_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="@dimen/spacing_ms"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/iv_news_image"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,8 +31,9 @@
         app:layout_constraintTop_toTopOf="@id/iv_news_image">
 
         <!-- Category Text -->
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_news_category"
+            style="@style/TextAppearance.Typography.Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/public_sans_semibold"
@@ -41,56 +42,50 @@
             android:textSize="12sp" />
 
         <!-- News Title -->
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_news_title"
+            style="@style/TextAppearance.Typography.Title3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="@dimen/spacing_2xs"
             android:ellipsize="end"
-            android:fontFamily="@font/public_sans_bold"
-            android:lineHeight="20dp"
             android:maxLines="2"
             android:text="Fall in love with Starbucks Valentine’s Day"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/spacing_xs"
             android:orientation="horizontal">
 
             <!-- News Date -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_news_date"
+                style="@style/TextAppearance.Typography.Caption1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/public_sans"
                 android:text="January 8, 2025"
-                android:textColor="@color/neutral_500"
-                android:textSize="12sp" />
+                android:textColor="@color/neutral_500" />
 
             <!-- Dot Separator -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_news_separator"
+                style="@style/TextAppearance.Typography.Caption1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
-                android:fontFamily="@font/public_sans"
+                android:layout_marginHorizontal="@dimen/spacing_xs"
                 android:text="•"
-                android:textColor="@color/neutral_500"
-                android:textSize="12sp" />
+                android:textColor="@color/neutral_500" />
 
             <!-- Read Time -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_news_read_time"
+                style="@style/TextAppearance.Typography.Caption1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/public_sans"
                 android:text="2 min read"
-                android:textColor="@color/neutral_500"
-                android:textSize="12sp" />
+                android:textColor="@color/neutral_500" />
         </LinearLayout>
 
     </LinearLayout>

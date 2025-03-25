@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Headline -->
+    <style name="TextAppearance.Typography.Headline1" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_bold</item>
+        <item name="android:fontFamily">@font/public_sans_bold</item>
+        <item name="android:textSize">40sp</item>
+        <item name="lineHeight">48sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Headline2" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_bold</item>
+        <item name="android:fontFamily">@font/public_sans_bold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="lineHeight">38sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Headline3" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_bold</item>
+        <item name="android:fontFamily">@font/public_sans_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">28sp</item>
+    </style>
+
+
+    <!-- Title -->
+    <style name="TextAppearance.Typography.Title1" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_bold</item>
+        <item name="android:fontFamily">@font/public_sans_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Title2" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_bold</item>
+        <item name="android:fontFamily">@font/public_sans_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Title3" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_bold</item>
+        <item name="android:fontFamily">@font/public_sans_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <!-- Subtitle -->
+    <style name="TextAppearance.Typography.Subtitle1" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_semibold</item>
+        <item name="android:fontFamily">@font/public_sans_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Subtitle2" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_semibold</item>
+        <item name="android:fontFamily">@font/public_sans_semibold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <!-- Body -->
+    <style name="TextAppearance.Typography.Body1" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans</item>
+        <item name="android:fontFamily">@font/public_sans</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Body2" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans</item>
+        <item name="android:fontFamily">@font/public_sans</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <!-- Label -->
+    <style name="TextAppearance.Typography.Label" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans_semibold</item>
+        <item name="android:fontFamily">@font/public_sans_semibold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="TextAppearance.Typography.Caption1" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans</item>
+        <item name="android:fontFamily">@font/public_sans</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+    </style>
+
+    <style name="TextAppearance.Typography.Caption2" parent="Base.TextAppearance.AppCompat">
+        <item name="fontFamily">@font/public_sans</item>
+        <item name="android:fontFamily">@font/public_sans</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">14sp</item>
+    </style>
+
+</resources>

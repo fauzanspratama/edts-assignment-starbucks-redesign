@@ -62,12 +62,11 @@
                     <!-- Top Section -->
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_user_name"
+                        style="@style/TextAppearance.Typography.Title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hi, Diandra"
                         android:textColor="@color/neutral_950"
-                        android:textSize="16sp"
-                        app:fontFamily="@font/public_sans_bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,13 +91,11 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_member_level"
+                        style="@style/TextAppearance.Typography.Title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/public_sans_bold"
                         android:text="Green Level"
                         android:textColor="@color/brand_accent_green"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@id/ic_member_level"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/ic_member_level" />
@@ -141,39 +138,36 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_member_point"
+                        style="@style/TextAppearance.Typography.Title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="6dp"
-                        android:fontFamily="@font/public_sans_bold"
                         android:text="528"
                         android:textColor="@color/neutral_950"
-                        android:textSize="16sp"
                         app:layout_constraintBottom_toBottomOf="@id/ic_member_point"
                         app:layout_constraintStart_toEndOf="@id/ic_member_point"
                         app:layout_constraintTop_toTopOf="@id/ic_member_point" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_point_label"
+                        style="@style/TextAppearance.Typography.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_xs"
                         android:layout_marginBottom="@dimen/spacing_2xs"
-                        android:fontFamily="@font/public_sans"
                         android:text="pts"
                         android:textColor="@color/neutral_500"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@id/tv_member_point"
                         app:layout_constraintStart_toEndOf="@id/tv_member_point" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_claim_reward"
+                        style="@style/TextAppearance.Typography.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="2dp"
-                        android:fontFamily="@font/public_sans"
                         android:text="Claim your rewards"
                         android:textColor="@color/neutral_500"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@id/ic_claim_reward"
                         app:layout_constraintEnd_toStartOf="@id/ic_claim_reward"
                         app:layout_constraintTop_toTopOf="@id/ic_claim_reward" />
@@ -209,12 +203,11 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_order_greeting"
+                        style="@style/TextAppearance.Typography.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="It's the perfect time for coffee!"
                         android:textColor="@color/neutral_600"
-                        android:textSize="14sp"
-                        app:fontFamily="@font/public_sans"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -264,12 +257,11 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_news"
+                        style="@style/TextAppearance.Typography.Title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Starbucks News"
                         android:textColor="@color/neutral_950"
-                        android:textSize="18sp"
-                        app:fontFamily="@font/public_sans_bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -293,8 +285,7 @@
                         style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:backgroundTint="@android:color/transparent"
+                        android:layout_marginTop="@dimen/spacing_ms"
                         android:strokeColor="@color/brand_accent_green"
                         android:text="See all news"
                         android:textColor="@color/brand_accent_green"

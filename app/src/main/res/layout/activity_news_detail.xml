@@ -22,28 +22,26 @@
     <!-- Category Text -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_news_category"
+        style="@style/TextAppearance.Typography.Subtitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/public_sans_semibold"
+        android:layout_marginStart="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_m"
         android:text="Category"
         android:textColor="@color/brand_accent_green"
-        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_news_image" />
 
     <!-- News Title -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_news_title"
+        style="@style/TextAppearance.Typography.Title1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/public_sans_bold"
+        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_xs"
         android:text="News Title"
         android:textColor="@color/neutral_950"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_news_category" />
 
@@ -52,50 +50,46 @@
         android:id="@+id/date_read_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_xs"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/tv_news_title">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_news_date"
+            style="@style/TextAppearance.Typography.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/public_sans"
             android:text="Date"
-            android:textColor="@color/neutral_500"
-            android:textSize="14sp" />
+            android:textColor="@color/neutral_500" />
 
         <com.google.android.material.textview.MaterialTextView
+            style="@style/TextAppearance.Typography.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="4dp"
-            android:fontFamily="@font/public_sans"
+            android:layout_marginHorizontal="@dimen/spacing_xs"
             android:text="•"
-            android:textColor="@color/neutral_500"
-            android:textSize="14sp" />
+            android:textColor="@color/neutral_500" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_news_read_time"
+            style="@style/TextAppearance.Typography.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/public_sans"
             android:text="2 min read"
-            android:textColor="@color/neutral_500"
-            android:textSize="14sp" />
+            android:textColor="@color/neutral_500" />
     </LinearLayout>
 
     <!-- News Content -->
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_news_content"
+        style="@style/TextAppearance.Typography.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/public_sans"
+        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:layout_marginTop="@dimen/spacing_m"
         android:text="News Content Here..."
         android:textColor="@color/neutral_950"
-        android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/date_read_container" />
 
     <!-- Back Button (At Bottom Center) -->
@@ -104,8 +98,8 @@
         style="@style/Widget.Material3.Button.OutlinedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="@dimen/spacing_m"
+        android:layout_marginBottom="@dimen/spacing_l"
         android:text="Back"
         android:textColor="@color/brand_accent_green"
         app:layout_constraintBottom_toBottomOf="parent"
