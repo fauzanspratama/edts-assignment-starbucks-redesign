@@ -24,4 +24,8 @@
     <color name="brand_light_green">#D4E9E2</color>
     <color name="brand_house_green">#1E3932</color>
 
+    <!--Navigation Bar Color-->
+    <color name="green_active">#006D46</color>  <!-- Active icon color -->
+    <color name="gray_inactive">#A0A0A0</color>  <!-- Inactive icon color -->
+
 </resources>

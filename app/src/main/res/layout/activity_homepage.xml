@@ -10,7 +10,9 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="96dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -19,24 +21,22 @@
             android:layout_height="wrap_content">
 
             <!-- Header Banner Slider -->
-            <com.dicoding.starbucksredesign.component.HeroBanner
+            <com.dicoding.starbucksredesign.component.HeroBannerView
                 android:id="@+id/view_hero_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <!-- Profile Card -->
+            <!-- Notification Badge -->
             <com.dicoding.starbucksredesign.component.NotificationBadgeView
                 android:id="@+id/view_notification_badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="12dp"
-                android:clipChildren="false"
-                android:clipToPadding="false"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardElevation="0dp"
+                android:layout_marginTop="@dimen/spacing_s"
+                android:layout_marginEnd="@dimen/spacing_ms"
+                android:fitsSystemWindows="true"
+                app:cardElevation="@dimen/spacing_zero"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
                 android:id="@+id/profile_card_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginHorizontal="@dimen/spacing_m"
                 android:layout_marginTop="-28dp"
                 android:clipToPadding="false"
                 app:cardCornerRadius="12dp"
@@ -57,38 +57,45 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_m">
 
+                    <!-- Top Section -->
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_user_name"
+                        style="@style/TextAppearance.Typography.Title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hi, Diandra"
                         android:textColor="@color/neutral_950"
-                        android:textSize="16sp"
-                        app:fontFamily="@font/public_sans_bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
+                    <!-- ShimmerLayout -->
+                    <com.dicoding.starbucksredesign.component.ShimmerView
                         android:id="@+id/ic_member_level"
-                        android:layout_width="24dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="4dp"
-                        android:src="@drawable/ic_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
                         app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
                         app:layout_constraintEnd_toStartOf="@id/tv_member_level"
-                        app:layout_constraintTop_toTopOf="@id/tv_user_name" />
+                        app:layout_constraintTop_toTopOf="@id/tv_user_name">
+
+                        <!-- Main Icon -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/icon_image"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_level" />
+                    </com.dicoding.starbucksredesign.component.ShimmerView>
+
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_member_level"
+                        style="@style/TextAppearance.Typography.Title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/public_sans_bold"
                         android:text="Green Level"
                         android:textColor="@color/brand_accent_green"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@id/ic_member_level"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@id/ic_member_level" />
@@ -97,64 +104,78 @@
                         android:id="@+id/div_profile_card"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="@dimen/spacing_s"
                         app:dividerColor="@color/neutral_100"
                         app:dividerThickness="1dp"
                         app:layout_constraintTop_toBottomOf="@id/tv_user_name" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/ic_user_point"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_marginTop="8dp"
-                        android:src="@drawable/ic_point"
+                    <com.dicoding.starbucksredesign.component.ShimmerView
+                        android:id="@+id/ic_member_point"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_s"
                         app:layout_constraintEnd_toStartOf="@id/tv_member_point"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/div_profile_card" />
+                        app:layout_constraintTop_toBottomOf="@id/div_profile_card">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:src="@drawable/ic_point" />
+
+                    </com.dicoding.starbucksredesign.component.ShimmerView>
+
+                    <!-- Bottom Section -->
+                    <!--                    <com.google.android.material.imageview.ShapeableImageView-->
+                    <!--                        android:id="@+id/ic_user_point"-->
+                    <!--                        android:layout_width="22dp"-->
+                    <!--                        android:layout_height="22dp"-->
+                    <!--                        android:layout_marginTop="@dimen/spacing_s"-->
+                    <!--                        android:src="@drawable/ic_point"-->
+                    <!--                        app:layout_constraintEnd_toStartOf="@id/tv_member_point"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@id/div_profile_card" />-->
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_member_point"
+                        style="@style/TextAppearance.Typography.Title3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/public_sans_bold"
+                        android:layout_marginStart="6dp"
                         android:text="528"
                         android:textColor="@color/neutral_950"
-                        android:textSize="16sp"
-                        app:layout_constraintBottom_toBottomOf="@id/ic_user_point"
-                        app:layout_constraintStart_toEndOf="@id/ic_user_point"
-                        app:layout_constraintTop_toTopOf="@id/ic_user_point" />
+                        app:layout_constraintBottom_toBottomOf="@id/ic_member_point"
+                        app:layout_constraintStart_toEndOf="@id/ic_member_point"
+                        app:layout_constraintTop_toTopOf="@id/ic_member_point" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_point_label"
+                        style="@style/TextAppearance.Typography.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:fontFamily="@font/public_sans"
+                        android:layout_marginStart="@dimen/spacing_xs"
+                        android:layout_marginBottom="@dimen/spacing_2xs"
                         android:text="pts"
                         android:textColor="@color/neutral_500"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@id/tv_member_point"
                         app:layout_constraintStart_toEndOf="@id/tv_member_point" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_claim_reward"
+                        style="@style/TextAppearance.Typography.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:fontFamily="@font/public_sans"
+                        android:layout_marginEnd="2dp"
                         android:text="Claim your rewards"
                         android:textColor="@color/neutral_500"
-                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@id/ic_claim_reward"
                         app:layout_constraintEnd_toStartOf="@id/ic_claim_reward"
                         app:layout_constraintTop_toTopOf="@id/ic_claim_reward" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ic_claim_reward"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
                         android:src="@drawable/ic_chevron_right"
                         app:layout_constraintBottom_toBottomOf="@id/tv_member_point"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -168,8 +189,8 @@
                 android:id="@+id/order_menu_card_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="@dimen/spacing_m"
+                android:layout_marginTop="@dimen/spacing_s"
                 android:clipToPadding="false"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
@@ -178,16 +199,15 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_m">
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_order_greeting"
+                        style="@style/TextAppearance.Typography.Body2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="It's the perfect time for coffee!"
                         android:textColor="@color/neutral_600"
-                        android:textSize="14sp"
-                        app:fontFamily="@font/public_sans"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -196,130 +216,23 @@
                         android:id="@+id/view_store_locator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="@dimen/spacing_ms"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_order_greeting" />
 
                     <!-- Menu Grid -->
-                    <GridLayout
-                        android:id="@+id/grid_menu_container"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_menu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:columnCount="4"
+                        android:layout_marginTop="@dimen/spacing_m"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/view_store_locator">
-
-                        <!-- Scan & Pay -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_icon"
-                                android:padding="12dp"
-                                android:src="@drawable/ic_scan" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/public_sans"
-                                android:gravity="center"
-                                android:text="Scan &amp; Pay"
-                                android:textColor="@color/neutral_700"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Store -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_icon"
-                                android:padding="12dp"
-                                android:src="@drawable/ic_store_outline" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/public_sans"
-                                android:gravity="center"
-                                android:text="Store"
-                                android:textColor="@color/neutral_700"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- Voucher -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_icon"
-                                android:padding="12dp"
-                                android:src="@drawable/ic_voucher" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/public_sans"
-                                android:gravity="center"
-                                android:text="Voucher"
-                                android:textColor="@color/neutral_700"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                        <!-- My Orders -->
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="center"
-                            android:gravity="center_horizontal"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="52dp"
-                                android:layout_height="52dp"
-                                android:background="@drawable/bg_icon"
-                                android:padding="12dp"
-                                android:src="@drawable/ic_order" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:fontFamily="@font/public_sans"
-                                android:gravity="center"
-                                android:text="My Orders"
-                                android:textColor="@color/neutral_700"
-                                android:textSize="12sp" />
-                        </LinearLayout>
-
-                    </GridLayout>
+                        app:layout_constraintTop_toBottomOf="@id/view_store_locator"
+                        app:spanCount="4" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -330,8 +243,8 @@
                 android:id="@+id/news_card_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="@dimen/spacing_m"
+                android:layout_marginTop="@dimen/spacing_s"
                 android:clipToPadding="false"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp"
@@ -340,27 +253,27 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:padding="@dimen/spacing_m">
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tv_news"
+                        style="@style/TextAppearance.Typography.Title2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Starbucks News"
                         android:textColor="@color/neutral_950"
-                        android:textSize="18sp"
-                        app:fontFamily="@font/public_sans_bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <!-- RecyclerView -->
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvNews"
+                        android:id="@+id/rv_news"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clipToPadding="false"
+                        android:contentDescription="News Image"
                         android:overScrollMode="never"
-                        android:paddingTop="8dp"
+                        android:paddingTop="@dimen/spacing_s"
                         app:layout_constraintBottom_toTopOf="@id/btn_see_all_news"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -372,13 +285,11 @@
                         style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:backgroundTint="@android:color/transparent"
+                        android:layout_marginTop="@dimen/spacing_ms"
                         android:strokeColor="@color/brand_accent_green"
                         android:text="See all news"
                         android:textColor="@color/brand_accent_green"
-                        app:cornerRadius="50dp"
-                        app:layout_constraintTop_toBottomOf="@id/rvNews"
+                        app:layout_constraintTop_toBottomOf="@id/rv_news"
                         app:strokeColor="@color/brand_accent_green" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -387,11 +298,11 @@
 
             <!-- Promo Banner -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPromo"
+                android:id="@+id/rv_promo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="@dimen/spacing_m"
+                android:layout_marginTop="@dimen/spacing_s"
                 android:overScrollMode="never"
                 app:layout_constraintTop_toBottomOf="@id/news_card_container" />
 
@@ -399,5 +310,22 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:outlineAmbientShadowColor="@color/neutral_600"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextAppearanceActive="@style/BottomNavStyleActive"
+        app:itemTextAppearanceInactive="@style/BottomNavStyleInActive"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

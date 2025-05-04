@@ -17,14 +17,14 @@
         android:id="@+id/tab_indicator"
         android:layout_width="match_parent"
         android:layout_height="16dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="@dimen/spacing_2xl"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/vp_header_banner"
         app:layout_constraintStart_toStartOf="parent"
         app:tabBackground="@drawable/ic_dot_selector"
         app:tabGravity="center"
         app:tabIndicator="@null"
-        app:tabPaddingEnd="8dp"
-        app:tabPaddingStart="8dp" />
+        app:tabPaddingEnd="@dimen/spacing_s"
+        app:tabPaddingStart="@dimen/spacing_s" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

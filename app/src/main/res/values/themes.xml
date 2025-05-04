@@ -2,9 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.StarbucksRedesign" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="materialThemeOverlay">@style/BottomNavTheme</item>
     </style>
 
     <style name="Theme.StarbucksRedesign" parent="Base.Theme.StarbucksRedesign">
         <item name="android:windowActivityTransitions">true</item>
+    </style>
+
+    <style name="BottomNavTheme" parent="">
+        <item name="android:itemBackground">@color/brand_light_green</item>
     </style>
 </resources>

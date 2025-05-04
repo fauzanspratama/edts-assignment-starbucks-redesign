@@ -13,7 +13,7 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -50,4 +50,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.glide)
     implementation("androidx.viewpager2:viewpager2:1.1.0")
+    implementation("com.airbnb.android:lottie-compose:6.6.2")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
